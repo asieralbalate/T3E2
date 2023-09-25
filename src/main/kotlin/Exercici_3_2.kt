@@ -1,12 +1,8 @@
 import java.io.*
 
 fun main(args: Array<String>) {
-    val ruta1 = "C:\\Users\\asier\\IdeaProjects\\Exercici_3_2\\src\\main\\Rutes.dat"
-    val ruta2 = "C:\\Users\\asier\\IdeaProjects\\Exercici_3_2\\src\\main\\Rutes.obj"
-    //Aqui me gustaria que leyese el archivo .dat
-    //Que mostrase el contenido del archivo .dat por pantalla
-    //Volcase el contenido en un archivo .obj
-
+    val ruta1 = "Rutes.dat"
+    val ruta2 = "Rutes.obj"
 
     val rutas: MutableList<Ruta> = mutableListOf()
     try {
@@ -28,26 +24,22 @@ fun main(args: Array<String>) {
             val rutaArchiu = Ruta(nomRuta, denivell, desnivellacumulat, listaDePunts)
             rutas.add(rutaArchiu)
         }
-
         for (ruta in rutas){
             ruta.mostrarRuta()
             println(" ")
             output.writeObject(ruta)
         }
+        input.close()
         output.close()
-
     } catch (e: Exception) {
         println("Error al leer el archivo")
     }
-
 }
 
 class Coordenades(var latitud: Double, var longitud: Double) : Serializable {
     companion object {
         private const val serialVersionUID: Long = 1
     }
-
-
 }
 
 class PuntGeo(var nom: String, var coord: Coordenades) : Serializable {
