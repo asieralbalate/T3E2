@@ -82,10 +82,10 @@ class Ruta(var nom: String, var desnivell: Int, var desnivellAcumulat: Int, var 
         println("Ruta: $nom")
         println("Desnivell: $desnivell")
         println("Desnivell acumulat: $desnivellAcumulat")
-        println("Te ${llistaDePunts.size} punts")
-        for (i in 0 until llistaDePunts.size) {
+        println("Te ${size()} punts")
+        for (i in 0 until size()) {
             val point: PuntGeo = llistaDePunts[i]
-            println("Punt $i: ${point.nom} (${point.coord.latitud} ,${point.coord.longitud})")
+            println("Punt $i: ${getPuntNom(i)} (${getPuntLatitud(i)} ,${getPuntLongitud(i)})")
         }
     }
 }
